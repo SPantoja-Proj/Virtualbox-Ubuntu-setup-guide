@@ -88,3 +88,7 @@ After reboot:
 3. Run basic commands:
 
 ```bash
+uname -a
+lsb_release -a
+```
+
