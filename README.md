@@ -92,3 +92,38 @@ uname -a
 lsb_release -a
 ```
 
+## 7. Install VirtualBox Guest Additions
+
+VirtualBox Guest Additions improve performance and usability inside the VM, including better display resolution, shared clipboard, and smoother mouse integration.
+
+1. Start your Ubuntu VM.
+2. In the VirtualBox menu bar, select **Devices → Insert Guest Additions CD image…**.
+3. Ubuntu should prompt you to run the installer. If it does, click **Run** and enter your password.
+4. If no prompt appears, open a terminal and run:
+
+   ```bash
+   sudo mkdir -p /media/cdrom
+   sudo mount /dev/cdrom /media/cdrom
+   cd /media/cdrom
+   sudo ./VBoxLinuxAdditions.run
+   ```
+5. Restart the VM after installation.
+
+## 8. Next Steps
+
+1. Practice essential Linux commands (ls, cd, cp, mv, chmod, etc.).
+2. Update your system:
+   ```bash
+   sudo apt update && sudo apt upgrade
+   ```
+3. Install useful tools:
+   ```bash
+      sudo apt install git build-essential
+   ```
+   ---
+
+## Thank You
+
+Thanks for checking out this guide! I hope it helps you get started with VirtualBox and Ubuntu smoothly. Feel free to open an issue or submit a pull request if you’d like to improve or expand this project.
+
+
