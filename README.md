@@ -1,143 +1,58 @@
-# VirtualBox & Ubuntu: Step-by-step guide
+# Virtualbox Ubuntu Setup Guide
 
-This repository explains how to install Oracle VirtualBox and set up an Ubuntu virtual machine (VM). It’s aimed at beginners who are learning Linux and want a safe environment to practice.
-
----
+![License](https://img.shields.io/badge/license-MIT-brightgreen.svg) ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 
 ## Table of Contents
 
-- [1. Prerequisites](#1-prerequisites)
-- [2. Install VirtualBox](#2-install-virtualbox)
-- [3. Create a new Ubuntu virtual machine](#3-create-a-new-ubuntu-virtual-machine)
-- [4. Attach the Ubuntu ISO](#4-attach-the-ubuntu-iso)
-- [5. Boot the VM and install Ubuntu](#5-boot-the-vm-and-install-ubuntu)
-- [6. First boot and basic checks](#6-first-boot-and-basic-checks)
-- [7. Install VirtualBox Guest Additions](#7-install-virtualbox-guest-additions)
-- [8. Next Steps](#8-next-steps)
-- [Thank You](#thank-you)
+- [Introduction](#introduction)
+- [Requirements](#requirements)
+- [Installation Steps](#installation-steps)
+- [Post-Installation](#post-installation)
+- [Contributing](#contributing)
+- [Security](#security)
+- [Troubleshooting](#troubleshooting)
 
----
+## Introduction
 
-## 1. Prerequisites
+This guide provides step-by-step instructions on how to set up Ubuntu in a VirtualBox environment. Whether you are a beginner or an experienced user, this guide will help you navigate through the setup process.
 
-- **Host OS:** Windows, macOS, or Linux
-- **Hardware:** At least 8 GB RAM recommended, 20+ GB free disk space
-- **Downloads:**
-  - VirtualBox: https://www.virtualbox.org/wiki/Downloads
-  - Ubuntu Desktop ISO (e.g., LTS version): https://ubuntu.com/download/desktop
+## Requirements
 
----
+- A compatible computer with virtualization support.
+- VirtualBox installed on your host machine.
+- An Ubuntu ISO image.
 
-## 2. Install VirtualBox
+## Installation Steps
 
-1. **Download VirtualBox**
-   - Go to the VirtualBox downloads page.
-   - Choose the installer for your host OS (Windows, macOS, or Linux).
+1. Download and install VirtualBox.
+2. Create a new virtual machine.
+3. Start the virtual machine and select the downloaded Ubuntu ISO.
+4. Follow the on-screen instructions to complete the installation.
 
-2. **Run the installer**
-   - Double-click the installer.
-   - Accept the default options unless you have a specific reason to change them.
-   - Approve any network or driver prompts.
-   - Launch VirtualBox after installation.
+## Post-Installation
 
----
+After installation, consider the following steps for a better experience:
+- Install the VirtualBox Guest Additions for enhanced performance.
+- Update your Ubuntu system regularly.
 
-## 3. Create a new Ubuntu virtual machine
+## Contributing
 
-1. **Start VirtualBox** and click **“New”**.
-2. **Name and OS type**
-   - **Name:** `Ubuntu-VM` (or anything you like)
-   - **Type:** `Linux`
-   - **Version:** `Ubuntu (64-bit)`
-3. **Memory size (RAM)**
-   - Recommended: **2048 MB (2 GB)** minimum, **4096 MB (4 GB)** if you have enough RAM.
-4. **Hard disk**
-   - Choose **“Create a virtual hard disk now”**.
-   - Disk type: **VDI (VirtualBox Disk Image)**.
-   - Storage: **Dynamically allocated**.
-   - Size: **20 GB** or more.
+We welcome contributions from the community. To contribute, please follow these steps:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes and commit them (`git commit -m 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Create a new Pull Request.
 
-Click **Create**.
+## Security
 
----
+For security concerns, please review the [Security Policy](SECURITY.md) in this repository. Always keep your VirtualBox and Ubuntu updated to mitigate security risks.
 
-## 4. Attach the Ubuntu ISO
+## Troubleshooting
 
-1. Select your new VM and click **“Settings”**.
-2. Go to **“Storage”**.
-3. Under **Controller: IDE** (or SATA), click the empty optical drive.
-4. On the right, click the disk icon and choose **“Choose a disk file…”**.
-5. Select the downloaded Ubuntu ISO file.
-6. Click **OK**.
+If you encounter issues during installation, consider the following:
+- Ensure that your BIOS settings allow virtualization.
+- Verify the integrity of the downloaded Ubuntu ISO.
+- Check the VirtualBox logs for detailed error messages. 
 
----
-
-## 5. Boot the VM and install Ubuntu
-
-1. Select the VM and click **“Start”**.
-2. The VM should boot from the Ubuntu ISO.
-3. When prompted, choose **“Install Ubuntu”**.
-
-Follow the installer steps:
-
-- **Keyboard layout:** Choose your layout and test it.
-- **Updates and other software:** You can leave defaults or enable updates/third-party software.
-- **Installation type:** For a VM, **“Erase disk and install Ubuntu”** is safe (it only affects the virtual disk).
-- **Timezone:** Select your region.
-- **User account:**
-  - Choose a **name**, **computer name**, **username**, and **password**.
-  - Remember this password—you’ll use it with `sudo`.
-
-Click **Install** and wait for the process to finish. Then **restart** the VM when prompted. If asked to remove the installation medium, just press **Enter**.
-
----
-
-## 6. First boot and basic checks
-
-After reboot:
-
-1. Log in with the username and password you created.
-2. Open a terminal:
-   - Press `Ctrl + Alt + T` inside the VM.
-3. Run basic commands:
-
-```bash
-uname -a
-lsb_release -a
-```
-
-## 7. Install VirtualBox Guest Additions
-
-VirtualBox Guest Additions improve performance and usability inside the VM, including better display resolution, shared clipboard, and smoother mouse integration.
-
-1. Start your Ubuntu VM.
-2. In the VirtualBox menu bar, select **Devices → Insert Guest Additions CD image…**.
-3. Ubuntu should prompt you to run the installer. If it does, click **Run** and enter your password.
-4. If no prompt appears, open a terminal and run:
-
-   ```bash
-   sudo mkdir -p /media/cdrom
-   sudo mount /dev/cdrom /media/cdrom
-   cd /media/cdrom
-   sudo ./VBoxLinuxAdditions.run
-   ```
-5. Restart the VM after installation.
-
-## 8. Next Steps
-
-1. Practice essential Linux commands (ls, cd, cp, mv, chmod, etc.).
-2. Update your system:
-   ```bash
-   sudo apt update && sudo apt upgrade
-   ```
-3. Install useful tools:
-   ```bash
-      sudo apt install git build-essential
-   ```
-   ---
-
-## Thank You
-
-Thanks for checking out this guide! I hope it helps you get started with VirtualBox and Ubuntu smoothly. Feel free to open an issue or submit a pull request if you’d like to improve or expand this project.
-
-
+Feel free to reach out to the community for help or check our issue tracker for known issues.
